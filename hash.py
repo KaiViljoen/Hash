@@ -1,37 +1,31 @@
-# Written by @Tenjin979
-#!/usr/bin/python3
-
 from hashlib import __all__
-from random import randrange, choice
-from sys import stdout, argv
+from sys import argv,stdout; from sys import exit
 from time import sleep
+from random import choice
+from random import random as rnd
 
-# type output to screen
+help ='Usage:\n\t Example: hsh md5 hashvalue\n\t Example: hsh sha_512 hashvalue\n\t Example hsh random'
+
+x=[i for i in __all__ if i.startswith('s') or i.startswith('m')];x=[i for i in x if not 'k' in i]
+
 def type(seq):
-  for char in seq:
-    stdout.write(char)
-    stdout.flush()
-    time.sleep(0.005)
-    
-    
-# Pseudo-random generate hash
-def random(hashtype=None, array=None):  
-   # Append all usefull hashtypes to local import list    
-   a=[l for l in a if l.startswith('s') or if l.startswith('m')];a =[l for l in a if 'k' not in l]; a.append(__all__)
-   try:
-       if hashtype ==None:
-         x=choice(a)
-         exec('from hashlib import %s'%(x))
-       elif hashtype !=None:
-          x=hashtype
-          exec('from hashlib import %s'%(x))
-       else: pass
-    except Error as e:
-          type('Unsupported Hash-Type ...')
-    v=globals()[x](f'%i'.encode('utf-8')%(randrange(1,10**100))).hexdigest() # generate call
-    if array !=None: array.append(v)
-    else: print(x)
+    for char in seq: stdout.write(char);stdout.flush();sleep(0.005)
 
-hash =argv[1]
-if hash =='random': random()
-elif hash!='random': pass
+try: 
+    global hsh;hsh=argv[1]
+    if hsh=='random':
+        exec('from hashlib import %s'%(choice(x)))
+    else: global chrseq;chrseq=argv[2]
+except IndexError: print(help);exit()
+
+try:
+   if hsh in x:
+       exec('from hashlib import %s'%(hsh))
+       x=globals()[hsh](chrseq.encode('utf-8')).hexdigest();type(x+'\n')
+   elif hsh not in x: 
+       if hsh=='random':
+         type(globals()[list(globals().keys())[-1]](f'%i'.encode('utf-8')%(rnd()**-200)).hexdigest()+'\n')
+       else:
+           print('[%s]'%(hsh));type('\nUnsupported or Invalid Hash-Type ...\n');print(help)
+except KeyError: type('Unsupported Hash-Type ...\n');
+
