@@ -8,7 +8,7 @@ z=['zsh','bash','sh']
 
 #Move files and assign execute permissions.
 system('mv %s/hash/hash/ /usr/bin/'%(getcwd()))
-system('chmod +x /usr/bin/')
+system('chmod +x /usr/bin/hash/*')
 
 #add files to PATH permanently.
 for i in z: 
