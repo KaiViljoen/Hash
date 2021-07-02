@@ -9,18 +9,30 @@ from random import random as rnd
 
 help ='Usage:\n\t Example: hsh md5 hashvalue\n\t Example: hsh sha_512 hashvalue\n\t Example hsh random'
 
-x=[i for i in __all__ if i.startswith('s') or i.startswith('m')];x=[i for i in x if not 'k' in i]
+#Narrow down usable hashes
+x=[i for i in __all__ if i.startswith('s') or i.startswith('m')]
+x=[i for i in x if not 'k' in i]
 
+#Typing Animation
 def type(seq):
-    for char in seq: stdout.write(char);stdout.flush();sleep(0.005)
-
+    for char in seq: 
+        stdout.write(char)
+        stdout.flush()
+        sleep(0.005)
+        
+#Parameter Conditions
 try: 
-    global hsh;hsh=argv[1]
+    global hsh
+    hsh=argv[1]
     if hsh=='random':
         exec('from hashlib import %s'%(choice(x)))
-    else: global chrseq;chrseq=argv[2]
-except IndexError: print(help);exit()
+    else: 
+        global chrseq
+        chrseq=argv[2]
+except IndexError: 
+    print(help);exit()
 
+# Parameter Processing
 try:
    if hsh in x:
        exec('from hashlib import %s'%(hsh))
