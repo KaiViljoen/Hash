@@ -41,5 +41,4 @@ try:
          type(globals()[list(globals().keys())[-1]](f'%i'.encode('utf-8')%(random()**-200)).hexdigest()+'\n')
        else:
            print('[%s]'%(hsh));type('\nUnsupported or Invalid Hash-Type ...\n');print(help)
-except KeyError: type('Unsupported Hash-Type ...\n');
-
+except KeyError: type('Unsupported Hash-Type ...\n')
