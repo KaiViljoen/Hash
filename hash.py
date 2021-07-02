@@ -1,3 +1,6 @@
+# Written and Published by @Tenjin979 on Github.
+
+#!/usr/bin/python3
 from hashlib import __all__
 from sys import argv,stdout; from sys import exit
 from time import sleep
