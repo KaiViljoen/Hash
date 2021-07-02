@@ -6,7 +6,7 @@ from sys import argv,stdout; from sys import exit
 from time import sleep
 from random import choice, random
 
-help ='Usage:\n\t Example: hsh md5 hashvalue\n\t Example: hsh sha_512 hashvalue\n\t Example hsh random'
+help ='Usage:\n\t Example: hsh md5 hashvalue\n\t Example: hsh sha_512 hashvalue\n\t Example: hsh random'
 
 #Narrow down usable hashes
 x=[i for i in __all__ if i.startswith('s') or i.startswith('m')]
