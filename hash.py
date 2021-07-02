@@ -4,8 +4,7 @@
 from hashlib import __all__
 from sys import argv,stdout; from sys import exit
 from time import sleep
-from random import choice
-from random import random as rnd
+from random import choice, random
 
 help ='Usage:\n\t Example: hsh md5 hashvalue\n\t Example: hsh sha_512 hashvalue\n\t Example hsh random'
 
@@ -39,7 +38,7 @@ try:
        x=globals()[hsh](chrseq.encode('utf-8')).hexdigest();type(x+'\n')
    elif hsh not in x: 
        if hsh=='random':
-         type(globals()[list(globals().keys())[-1]](f'%i'.encode('utf-8')%(rnd()**-200)).hexdigest()+'\n')
+         type(globals()[list(globals().keys())[-1]](f'%i'.encode('utf-8')%(random()**-200)).hexdigest()+'\n')
        else:
            print('[%s]'%(hsh));type('\nUnsupported or Invalid Hash-Type ...\n');print(help)
 except KeyError: type('Unsupported Hash-Type ...\n');
