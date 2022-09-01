@@ -26,8 +26,7 @@ def main():
          install()
     elif a =='uninstall':
         system('sudo rm -rf /usr/bin/hsh /usr/bin/hash.py')
-        system('clear')
-        display('\033[0;31;40m[-] \033[0;37;40m Hash Generator Uninstalled ...\n')
+        display('\033[0;31;40m[-] \033[0;37;40mHash Generator Uninstalled ...\n')
     else:
         print('[-] TF did you do?? ... Exit code 1 ...')
         exit(1)
@@ -47,7 +46,7 @@ def install():
     if path.exists(x[0]):
        system('echo "export PATH=/usr/bin/hash.py" >> ~/.{sh}rc && echo "export PATH=/usr/bin/hsh" >> ~/.{sh0}rc'.format(sh=x[0],sh0=x[0]))
        system('sudo rm -rf /home/$USER/Hash/hash')
-       print('\033[0;34;40m[+] \033[0;31;40mInstallation Complete ...\n\033[0;34;40m[+] \033[0;31;40mRun "hsh" command to access...')
+       print('\033[0;34;40m[+] \033[0;37;40mInstallation Complete ...\n\033[0;34;40m[+] \033[0;37;40mRun "hsh" command to access...')
        exit(0)
     else:
          print('\033[0;31;40m[-] Installation Unsuccessful ...')
