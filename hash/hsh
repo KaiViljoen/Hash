@@ -1,0 +1,2 @@
+#!/bin/bash
+python3 /usr/bin/hash/hash/.hash.py $1 $2
