@@ -46,7 +46,7 @@ def install():
     if path.exists(x[0]):
        system('echo "export PATH=/usr/bin/hash.py" >> ~/.{sh}rc && echo "export PATH=/usr/bin/hsh" >> ~/.{sh0}rc'.format(sh=x[0],sh0=x[0]))
        system('sudo rm -rf /home/$USER/Hash/hash')
-       display('\033[0;34;40m[+] \033[0;37;40mInstallation Complete ...\n\033[0;34;40m[+] \033[0;37;40mRun "hsh" command to access...\n')
+       display('\033[0;34;40m[+] \033[0;37;40mInstallation Complete ...\n\033[0;34;40m[+] \033[0;37;40mRun "hsh" command to access ...\n')
        exit(0)
     else:
          print('\033[0;31;40m[-] Installation Unsuccessful ...')
